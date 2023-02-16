@@ -9,12 +9,29 @@
 </head>
 
 <body>
-    <script>
-        WebAssembly.instantiateStreaming(fetch("/dist/hello_world.wasm")).then((instance) => {
-            console.log(instance)
-        }).catch((error) => {
-            console.warn(error.message)
-        })
+    <script id="try-1">
+        // Gives error
+        WebAssembly.instantiateStreaming(fetch("/dist/hello_world.wasm"))
+            .then((instance) => console.log(instance))
+            .catch((error) => console.warn("Try 1:", error.message))
+    </script>
+
+    <script id="try-2">
+        // Gives error
+        WebAssembly.instantiateStreaming(fetch("/dist/hello_world.wasm"), {})
+            .then((instance) => { console.log(instance) })
+            .catch((error) => { console.warn("Try 2", error.message) })
+    </script>
+
+    <script id="try-3">
+        // Gives error
+        WebAssembly.compileStreaming(fetch("/dist/hello_world.wasm"))
+            .then(module => {
+                console.log("Try 3", module)
+                return WebAssembly.instantiate(module, {})
+            })
+            .then(instance => console.log("Try 3", instance))
+            .catch((error) => { console.warn("Try 3", error.message) })
     </script>
 </body>
 
