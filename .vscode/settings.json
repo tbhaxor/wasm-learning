@@ -1,0 +1,15 @@
+{
+    "[html]": {
+        "editor.suggest.insertMode": "replace",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "[cmake]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-vscode.cmake-tools"
+    },
+    "files.associations": {
+        "*.env.*": "plaintext",
+        "app.h": "c"
+    }
+}
