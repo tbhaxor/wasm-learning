@@ -3,7 +3,7 @@
 char *greet(char *name)
 {
     char *buffer = (char *)malloc(50);
-    // memset((void *)buffer, 0x0, 50);
+    memset((void *)buffer, 0x0, 50);
 
     if (strlen(name) > 20)
     {
