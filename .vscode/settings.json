@@ -10,6 +10,22 @@
     },
     "files.associations": {
         "*.env.*": "plaintext",
-        "app.h": "c"
+        "app.h": "c",
+        "sdl_mixer.h": "c",
+        "main.h": "c",
+        "emscripten.h": "c",
+        "cstdlib": "c",
+        "locale": "c",
+        "ostream": "c",
+        "new": "c",
+        "stdio.h": "c"
+    },
+    "[jsonc]": {
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.json-language-features"
     }
 }
