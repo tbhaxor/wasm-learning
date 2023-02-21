@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculations</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Calculator</legend>
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <label for="n1">Number 1:</label>
+                        <input type="number" id="n1" value="0" />
+                    </td>
+                    <td colspan="2">
+                        <label for="n2">Number 2:</label>
+                        <input type="number" id="n2" value="0" />
+                    </td>
+                </tr>
+                <tr>
+                    <th><button id="calc_b1" style="width: 50%;">+</button></th>
+                    <th><button id="calc_b2" style="width: 50%;">*</button></th>
+                    <th><button id="calc_b3" style="width: 50%;">-</button></th>
+                    <th><button id="calc_b4" style="width: 50%;">/</button></th>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+
+    <script src="/dist/calculations.js"></script>
+    <script>
+
+
+        (async () => {
+            const module = await Module()
+            function call_function(name, ...args) {
+                return module.ccall(name, "number", ["number", "number"], args)
+            }
+
+            function get_numbers() {
+                const n1 = Number(document.querySelector("#n1").value)
+                const n2 = Number(document.querySelector("#n2").value)
+                const isFloat = !Number.isInteger(n1) || !Number.isInteger(n2)
+                return [isFloat ? "r" : "z", [n1, n2]]
+            }
+
+            document.querySelector("#calc_b1").addEventListener("click", () => {
+                const [suffix, numbers] = get_numbers()
+                console.log(call_function(`add_${suffix}`, ...numbers))
+            })
+
+            document.querySelector("#calc_b2").addEventListener("click", () => {
+                const [suffix, numbers] = get_numbers()
+                console.log(call_function(`mul_${suffix}`, ...numbers))
+            })
+
+            document.querySelector("#calc_b3").addEventListener("click", () => {
+                const [suffix, numbers] = get_numbers()
+                console.log(call_function(`sub_${suffix}`, ...numbers))
+            })
+
+            document.querySelector("#calc_b4").addEventListener("click", () => {
+                const [suffix, numbers] = get_numbers()
+                console.log(call_function(`div_${suffix}`, ...numbers))
+            })
+        })()
+    </script>
+</body>
+
+</html>

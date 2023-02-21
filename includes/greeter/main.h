@@ -6,6 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-EMSCRIPTEN_KEEPALIVE char *greet(char *);
+extern EMSCRIPTEN_KEEPALIVE void *greet(char *);
 
 #endif

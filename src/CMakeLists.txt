@@ -1,2 +1,0 @@
-add_subdirectory(calculations)
-add_subdirectory(greeter)

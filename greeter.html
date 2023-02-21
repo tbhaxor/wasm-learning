@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeter</title>
+</head>
+
+<body>
+    <script src="/dist/greeter.js"></script>
+    <script>
+        (async () => {
+            const module = await new Module()
+            window.mod = module
+            console.log(module)
+            const ptr = module.ccall("greet", "number", ["string"], ["test"])
+            const buffer = new Uint8Array(module.HEAP8.buffer, ptr, 50)
+            console.log(new TextDecoder().decode(buffer))
+        })()
+    </script>
+</body>
+
+</html>
