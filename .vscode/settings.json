@@ -27,5 +27,6 @@
         "editor.suggest.insertMode": "replace",
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "vscode.json-language-features"
-    }
+    },
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }"
 }
